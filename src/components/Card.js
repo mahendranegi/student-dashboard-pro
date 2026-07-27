@@ -21,6 +21,11 @@ const cards = [
     title: 'Humans',
     description: 'Humans depend on plants and animals for survival.',
   },
+  {
+    id: 4,
+    title: 'Humans',
+    description: 'Humans depend on plants and animals for survival.',
+  },
 ];
 
 

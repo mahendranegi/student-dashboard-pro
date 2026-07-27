@@ -5,30 +5,20 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { StudenStyle } from "../assets/styled";
 
 function StudentInfo() {
   return (
-    <div style={{margin: '24px 0 0'}}>
-    <Card>
-      <CardContent>
-        <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
-          Word of the Day
-        </Typography>
-        <Typography variant="h5" component="div">
-         hgjksdh
-        </Typography>
-        <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>adjective</Typography>
-        <Typography variant="body2">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
-    </div>
+    <Box sx={{ mt: 4}}>
+    <StudenStyle>
+      <div className= "flexRap">
+        <span>1</span>
+        <span>jdfjks</span>
+      </div>
+      <h2>hello</h2>
+      <p>hii</p>
+    </StudenStyle>
+    </Box> 
   )
 }
 

@@ -12,6 +12,9 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Notification from '../NotificationHead';
 import NotificationHead from '../NotificationHead';
+import TextField from "@mui/material/TextField";
+import InputAdornment from "@mui/material/InputAdornment";
+import SearchIcon from '@mui/icons-material/Search';
 function Header() {
   return (
     <CustomHeader>
@@ -27,23 +30,34 @@ function Header() {
           >
             <MenuIcon />
           </IconButton> */}
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Hello,Mahendra
-          </Typography>
+          <div className='searchIcon'>
+<TextField
+      fullWidth
+      placeholder="Search projects..."
+      variant="outlined"
+      size="small"
+     
+    />
+            <SearchIcon />
+          </div>
          
+         <div className="headerRight">
+          
+           <div>
  <IconButton aria-label="show 4 unread messages">
       <Badge badgeContent={4} color="primary">
         <MailIcon />
       </Badge>
     </IconButton>
 
-    <IconButton aria-label="show 5 unread messages">
-      <Badge badgeContent={5} color="primary">
+     <IconButton aria-label="show new notifications">
+      <Badge color="secondary" variant="dot">
         <NotificationsIcon />
       </Badge>
     </IconButton>
+   </div>
 <NotificationHead />
-
+</div>
         </Toolbar>
       </AppBar>
     </Box>

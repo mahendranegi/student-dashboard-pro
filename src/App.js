@@ -6,22 +6,28 @@ import StudentInfo from "./components/StudentInfo";
 import Login from "./auth/Login";
 import Container from '@mui/material/Container';
 import Sidebar from "./components/layout/Sidebar";
+import { AppStyle } from "./assets/styled";
+import Admin from "./pages/Admin";
+import CustomTable from "./components/CustomTable";
+
 function App() {
   return (
-    <div className="App">
+    <AppStyle>
       
 <div style={{display: 'flex', gap: '32px'}}>
 <Sidebar />
-<div style={{width: '100%'}}>
+<div className="rightPannel">
       <Header />
-      <>
+      <div className="scrollContent">
       <CustomCard />
       <StudentInfo />
-      </>
+      <CustomTable />
+      </div>
       </div>
       {/* <Login /> */}
     </div>
-    </div>
+    {/* <Admin /> */}
+    </AppStyle>
   );
 }
 
