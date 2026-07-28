@@ -9,12 +9,16 @@ import Sidebar from "./components/layout/Sidebar";
 import { AppStyle } from "./assets/styled";
 import Admin from "./pages/Admin";
 import CustomTable from "./components/CustomTable";
-
+import { loginData } from "./auth/LoginData";
+import { useState } from "react";
 function App() {
+const[data] = useState(loginData);
+const[loginSuccess,setLoginSuccess] = useState(false);
+  console.log(data,'jjjj')
   return (
     <AppStyle>
       
-<div style={{display: 'flex', gap: '32px'}}>
+{/* <div style={{display: 'flex', gap: '32px'}}>
 <Sidebar />
 <div className="rightPannel">
       <Header />
@@ -23,10 +27,11 @@ function App() {
       <StudentInfo />
       <CustomTable />
       </div>
-      </div>
-      {/* <Login /> */}
-    </div>
-    {/* <Admin /> */}
+      </div> */}
+      <Login loginSuccess={loginSuccess} setLoginSuccess={setLoginSuccess} data={data}/>
+       {loginSuccess && <Admin />}
+    {/* </div> */}
+    
     </AppStyle>
   );
 }
