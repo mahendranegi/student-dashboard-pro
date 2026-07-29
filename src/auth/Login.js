@@ -33,8 +33,9 @@ const loginFunc = () => {
   })
   if (user) {
   localStorage.setItem("user", JSON.stringify(data));
-  setLoginSuccess(true);
+  
   setLoginShow(false)
+  setLoginSuccess(true)
 } else {
   alert("Invalid Email or Password");
 }

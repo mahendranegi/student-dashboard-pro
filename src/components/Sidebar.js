@@ -1,11 +1,11 @@
 import React from 'react'
-import { SidebarStyle } from "../../assets/styled";
-import logoImg from "../../assets/images/logo-new.png";
+import { SidebarStyle } from "../assets/styled";
+import logoImg from "../assets/images/logo-new.png";
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PeopleIcon from '@mui/icons-material/People';
 import AccessibilityIcon from '@mui/icons-material/Accessibility';
 import SmsFailedIcon from '@mui/icons-material/SmsFailed';
-import NotificationHead from '../NotificationHead';
+import NotificationHead from './NotificationHead';
 import Button from "@mui/material/Button";
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';

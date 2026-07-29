@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import bgImage from "./images/bg.jpg";
 import adminBg from "./images/admin.jpg";
+
 export const GlobalStyle = styled.div`
   background: rgb(247 248 250);
   padding: 0;

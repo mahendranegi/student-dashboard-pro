@@ -18,7 +18,7 @@ export const loginData = [
 
 ]
 
-export const loginData = [
+export const studentData = [
   {
     "id": "1",
     "name": "Mahendra Negi",
@@ -42,5 +42,5 @@ export const loginData = [
     "attendance": 80,
     "marks": 74,
     "image": "https://i.pravatar.cc/150?img=2"
-  }
+  },
 ]

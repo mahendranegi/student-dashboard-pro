@@ -1,5 +1,5 @@
 import React from 'react'
-import { CustomHeader } from "../../assets/styled";
+import { CustomHeader } from "../assets/styled";
 import Button from "@mui/material/Button";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -10,8 +10,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Badge from '@mui/material/Badge';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import Notification from '../NotificationHead';
-import NotificationHead from '../NotificationHead';
+import Notification from './NotificationHead';
+import NotificationHead from './NotificationHead';
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from '@mui/icons-material/Search';
