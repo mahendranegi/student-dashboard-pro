@@ -5,8 +5,9 @@ import { loginData } from "./LoginData";
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import Admin from "../pages/Admin";
-
-function Login({data,setLoginSuccess,loginSuccess}) {
+import { useNavigate } from "react-router-dom";
+function Login({data}) {
+  const navigate = useNavigate();
    const[loginShow,setLoginShow] = useState(true);
   const[email,setEmail] = useState('');
   const[password,setPassword] = useState('');
@@ -32,10 +33,10 @@ const loginFunc = () => {
     return item.email === email && item.password.toString() === password
   })
   if (user) {
-  localStorage.setItem("user", JSON.stringify(data));
-  
+  localStorage.setItem("user", JSON.stringify(user));
+ 
   setLoginShow(false)
-  setLoginSuccess(true)
+  navigate("/dashboard"); // Redirect to Dashboard
 } else {
   alert("Invalid Email or Password");
 }

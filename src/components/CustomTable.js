@@ -1,4 +1,14 @@
+import { useState } from "react";
 import * as React from "react";
+import EditIcon from '@mui/icons-material/Edit';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Button,
+} from "@mui/material";
 import {
   Table,
   TableBody,
@@ -9,73 +19,46 @@ import {
   Paper,
   Chip,
 } from "@mui/material";
+import SimpleDialog from "./SimpleDialog";
 
-const rows = [
-  {
-    id: 1,
-    title: "Complete React Dashboard",
-    description: "Finish the student dashboard UI",
-    category: "Development",
-    dueDate: "28 Jul 2026",
-    assignedTo: "Mahendra",
-    status: "In Progress",
-  },
-  {
-    id: 2,
-    title: "Design Login Page",
-    description: "Create responsive login screen",
-    category: "Design",
-    dueDate: "30 Jul 2026",
-    assignedTo: "Rahul",
-    status: "Pending",
-  },
-  {
-    id: 3,
-    title: "Fix Calendar Bugs",
-    description: "Resolve date selection issue",
-    category: "Bug Fix",
-    dueDate: "02 Aug 2026",
-    assignedTo: "Amit",
-    status: "Completed",
-  },
-];
 
-export default function CustomTable() {
+ 
+
+export default function CustomTable({columns,data}) {
+  const [open, setOpen] = useState(false);
+ const handleClickOpen = () => {
+  setOpen(true);
+};
+
+const handleClose = () => {
+  setOpen(false);
+};
   return (
     <TableContainer component={Paper} elevation={3}>
       <Table>
         <TableHead>
           <TableRow sx={{ background: "#f5f7fb" }}>
-            <TableCell><b>Task Title</b></TableCell>
-            <TableCell><b>Description</b></TableCell>
-            <TableCell><b>Category</b></TableCell>
-            <TableCell><b>Due Date</b></TableCell>
-            <TableCell><b>Assigned To</b></TableCell>
-            <TableCell><b>Status</b></TableCell>
+            {columns.map((col)=>{
+              return <TableCell key = {col.field}><b>{col.header}</b></TableCell>
+            })}
+              <TableCell>
+              <b>Action</b>
+            </TableCell>
           </TableRow>
         </TableHead>
 
         <TableBody>
-          {rows.map((row) => (
+          {data.map((row) => (
             <TableRow key={row.id} hover>
-              <TableCell>{row.title}</TableCell>
-              <TableCell>{row.description}</TableCell>
-              <TableCell>{row.category}</TableCell>
-              <TableCell>{row.dueDate}</TableCell>
-              <TableCell>{row.assignedTo}</TableCell>
-              <TableCell>
-                <Chip
-                  label={row.status}
-                  color={
-                    row.status === "Completed"
-                      ? "success"
-                      : row.status === "In Progress"
-                      ? "primary"
-                      : "warning"
-                  }
-                  size="small"
-                />
-              </TableCell>
+              {columns.map((col)=>(
+                <TableCell key={col.field}>{row[col.field]}</TableCell>
+              ))}
+                <TableCell><EditIcon /> <MoreVertIcon onClick={handleClickOpen}/>
+                    <SimpleDialog
+    open={open}
+    onClose={handleClose}
+  />
+                </TableCell>
             </TableRow>
           ))}
         </TableBody>

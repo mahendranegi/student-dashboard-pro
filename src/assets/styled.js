@@ -3,7 +3,10 @@ import bgImage from "./images/bg.jpg";
 import adminBg from "./images/admin.jpg";
 
 export const GlobalStyle = styled.div`
-  background: rgb(247 248 250);
+.globalCss{
+background: rgb(247 248 250);
+}
+  
   padding: 0;
   margin: 0;
   font-family: "Poppins", sans-serif;
@@ -19,21 +22,9 @@ export const GlobalStyle = styled.div`
   }
 `;
 export const CustomHeader = styled.div`
-  & .searchIcon {
-    position: relative;
-    width: 400px;
-
-    & input {
-      width: 200px;
-      margin-left: 16px;
-    }
-    & .MuiSvgIcon-fontSizeMedium {
-      position: absolute;
-      left: 6px;
-      top: 10px;
-      color: #757575;
-    }
-  }
+width: calc(100% + 24px);
+margin: 0 0 0 -24px;
+ 
   & .headerRight {
     display: flex;
     gap: 16px;
@@ -47,10 +38,9 @@ export const CustomHeader = styled.div`
     color: #212121;
     margin: 0 0 24px;
     box-shadow: none;
-    border-radius: 8px;
     & .MuiToolbar-regular {
       padding: 0 16px;
-      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+          border: 1px solid #334155;
       justify-content: space-between;
     }
   }
@@ -87,6 +77,50 @@ export const StudenStyle = styled.div`
 `;
 
 export const AppStyle = styled.div`
+.scrollContent{
+padding-right: 24px;
+}
+.darkBg {
+& input::placeholder{
+    color: #fff;
+    }
+& .TableUi{
+background: #fff;
+}
+& .flexAlign button{
+background: #fff;
+color: #194163;
+border: 1px solid #fff;
+}
+& ul a{
+color: #fff;
+border: 1px solid #fff;
+}
+& button{
+background: #fff;
+color: #194163;
+}
+& .searchIcon svg{
+color: #fff;
+
+}
+& .css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline{
+border: 1px solid #fff;
+}
+& .sideBarbg{
+  background: #111827;
+  color: #fff;
+}
+ 
+background: #0F172A;
+color: #F8FAFC;
+& header{
+background: #1E3A8A;
+color: #fff;
+
+
+}
+}
   .rightPannel {
     display: flex;
     flex-direction: column;
@@ -98,22 +132,37 @@ export const AppStyle = styled.div`
       padding-right: 24px;
     }
   }
+    .dark{
+    background: #777;
+    color: #fff;
+    }
 `;
 
 export const SidebarStyle = styled.div`
+.sideBarbg{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    height: calc(-48px + 100vh);
+    min-width: 260px;
+    background: rgb(255, 255, 255);
+    padding: 24px;
+}
+    .darkBg{
+    
+    background: #0F172A;
+    color: #fff;
+
+    }
   & .sideBarFooter {
     display: flex;
     gap: 16px;
     flex-direction: column;
+    & button{
+        width: max-content;
+    }
   }
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  height: calc(100vh - 48px);
-  min-width: 260px;
-  background: #fff;
-  padding: 24px;
 
   & ul {
     list-style: none;
@@ -121,11 +170,26 @@ export const SidebarStyle = styled.div`
     display: flex;
     flex-direction: column;
     gap: 24px;
-    & li {
+    &  a{
       display: flex;
       gap: 12px;
       cursor: pointer;
+      padding: 8px 16px;
+          border: 1px solid #000;
+    color: #000;
+border-radius: 8px;
+transition: 400ms;
+box-sizing: border-box;
+ text-decoration: none;
     }
+      & a.active, a:hover{
+      background: #212121;
+     
+      color: #fff;
+      
+      
+      
+      }
   }
 `;
 export const NotificationStyle = styled.div`
@@ -143,6 +207,7 @@ export const NotificationStyle = styled.div`
     justify-content: center;
     color: #fff;
   }
+    & span{font-size: 12px;}
 `;
 export const LoginStyle = styled.div`
 .posRelative{
@@ -216,3 +281,35 @@ height: 100vh;
     }
     }
 }`;
+
+export const TaskStyled = styled.div`
+.TableUi{
+border: 1px solid rgba(224, 224, 224, 1);
+padding: 16px;
+border-radius: 4px;
+}
+
+.flexAlign{
+display: flex;
+justify-content: space-between;
+margin: 0 0 24px;
+}
+`
+export const SearchStyled = styled.div`
+.searchIcon{
+    position: relative;
+    width: 400px;
+}
+    .MuiSvgIcon-fontSizeMedium {
+    position: absolute;
+    left: 6px;
+    top: 10px;
+    color: rgb(117, 117, 117);
+}
+    input {
+    width: 200px;
+    margin-left: 16px;
+}
+}
+`
+

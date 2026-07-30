@@ -1,5 +1,5 @@
 import Button from "@mui/material/Button";
-import { BrowserRouter,Routes,Route } from "react-router-dom";
+import { BrowserRouter,Routes,Route, Navigate } from "react-router-dom";
 
 // import {Header} from '../'
 import Header from './components/Header';
@@ -16,20 +16,32 @@ import { useState } from "react";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 import Layout from "./layout/Layout";
+import { userContext } from "./context/ContextData";
+import Students from "./pages/Students";
+import Tasks from "./pages/Tasks";
+import Profile from "./layout/Profile";
+import Teachers from "./pages/Teachers";
 function App() {
-const[data] = useState(loginData);
-const[loginSuccess,setLoginSuccess] = useState(false);
-  console.log(data,'jjjj')
+const storedUser = localStorage.getItem("user");
+const[color,setColor] = useState("red")
+const user = storedUser ? JSON.parse(storedUser) : null;
+const[theam, setTheam ] = useState("Dark Mode"); 
+const handleTheam = () =>{ setTheam((prev)=> { return prev != "Dark Mode" ? 'Dark Mode' : 'Light Mode' }) }
+
+// const name1 = "Mahendra"
+
   return (
+    <userContext.Provider value={{theam,setTheam,handleTheam}}>
     <BrowserRouter>
     <AppStyle>
       <Routes>
-        <Route path="/" element={<Login loginSuccess={loginSuccess} setLoginSuccess={setLoginSuccess} />} />
-        <Route element={<Layout />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          {/* <Route path="/students" element={<Students />} /> */}
-          {/* <Route path="/tasks" element={<Tasks />} /> */}
-          {/* <Route path="/profile" element={<Profile />} /> */}
+        <Route path="/" element={<Login />} />
+        <Route element={user  ? <Layout  user={user}/> : <Navigate to="/" replace />}>
+          <Route path="/dashboard" element={<Dashboard  user={user}/>} />
+          <Route path="/students" element={<Students />} />
+           <Route path="/teachers" element={<Teachers />} />
+          <Route path="/tasks" element={<Tasks />} />
+          <Route path="/profile" element={<Profile />} />
         </Route>
 
        
@@ -48,12 +60,14 @@ const[loginSuccess,setLoginSuccess] = useState(false);
       </div>
       </div> */}
       {/* <Login loginSuccess={loginSuccess} setLoginSuccess={setLoginSuccess} data={data}/> */}
-       {loginSuccess && <Dashboard />}
+      
+
       
     {/* </div> */}
     
     </AppStyle>
     </BrowserRouter>
+    </userContext.Provider>
   );
 }
 

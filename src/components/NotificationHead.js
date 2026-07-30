@@ -4,7 +4,8 @@ import Person3Icon from '@mui/icons-material/Person3';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import { deepOrange } from '@mui/material/colors';
-function NotificationHead() {
+function NotificationHead({user}) {
+  // console.log(user,'++++++++++')
   return (
     <NotificationStyle>
       {/* <div className='user'>
@@ -19,8 +20,8 @@ function NotificationHead() {
       </Avatar>
     
     <div>
-      <span>Mahendra</span>
-      <p>Admin</p>
+      <h4>{user?.name}</h4>
+      <span>{user?.work}</span>
     </div>
     </NotificationStyle>
   )

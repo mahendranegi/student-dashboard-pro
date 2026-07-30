@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { CustomHeader } from "../assets/styled";
 import Button from "@mui/material/Button";
 import AppBar from '@mui/material/AppBar';
@@ -12,34 +12,18 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Notification from './NotificationHead';
 import NotificationHead from './NotificationHead';
-import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
-import SearchIcon from '@mui/icons-material/Search';
-function Header() {
+import { userContext } from '../context/ContextData';
+import SearchInput from './SearchInput';
+function Header({user}) {
+  const{theam} = useContext(userContext)
+  console.log(user,'____Header')
   return (
     <CustomHeader>
        <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          {/* <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton> */}
-          <div className='searchIcon'>
-<TextField
-      fullWidth
-      placeholder="Search projects..."
-      variant="outlined"
-      size="small"
-     
-    />
-            <SearchIcon />
-          </div>
+          <SearchInput placeholder="Enter project name.."/>
          
          <div className="headerRight">
           
@@ -56,7 +40,7 @@ function Header() {
       </Badge>
     </IconButton>
    </div>
-<NotificationHead />
+<NotificationHead user={user}/>
 </div>
         </Toolbar>
       </AppBar>

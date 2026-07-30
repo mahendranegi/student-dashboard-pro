@@ -3,8 +3,8 @@
 export const loginData = [
     {
         id: 1,
-        name : 'Mahendra',
-        email : 'msnegi@gmail.com',
+        name : 'Max',
+        email : 'demo@gmail.com',
         password : 123456,
         work: 'UI Developer',
     },
