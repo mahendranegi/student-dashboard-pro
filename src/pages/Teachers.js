@@ -2,6 +2,8 @@ import React from 'react'
 import { teachers } from '../data/Teachers';
 import CustomTable from '../components/CustomTable';
 import Box from '@mui/material/Box';
+import { TaskStyled } from "../assets/styled";
+import SearchInput from '../components/SearchInput';
 
 function Teachers() {
       const teachersColumns = [
@@ -14,13 +16,22 @@ function Teachers() {
   { field: "status", header: "Status" },
 ];
   return (
-    <div>
-       <Box sx={{ mb: 4 }}>
-         <h1>Teachers </h1>
-      </Box>
-                <CustomTable columns={teachersColumns} data={teachers}/>
+    <TaskStyled>
+                <Box sx={{ mb: 4 }}>
+             <h1>Teachers </h1>
+          </Box>
         
-    </div>
+                <section className='TableUi'>
+                    <Box sx={{ mb: 4 }}>
+                        <SearchInput placeholder="Enter teacher name" />
+                    </Box>
+         <CustomTable columns={teachersColumns} data={teachers}/>
+                </section>
+               
+                
+            </TaskStyled>
+
+
   )
 }
 

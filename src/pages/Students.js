@@ -3,6 +3,8 @@ import {students} from '../data/Students'
 import CustomTable from '../components/CustomTable';
 import Box from '@mui/material/Box';
 import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
+import { TaskStyled } from "../assets/styled";
+import SearchInput from '../components/SearchInput';
 function Students() {
     const [studentData] = useState(students);
     console.log(studentData,'student')
@@ -16,12 +18,20 @@ function Students() {
   { field: "fees", header: "Fees" },
 ];
   return (
-    <div>
-         <Box sx={{ mb: 4 }}>
+     <TaskStyled>
+            <Box sx={{ mb: 4 }}>
          <h1><DragIndicatorIcon />Students </h1>
       </Box>
-        <CustomTable columns={studentColumns} data={studentData}/>
-    </div>
+    
+            <section className='TableUi'>
+                <Box sx={{ mb: 4 }}>
+                    <SearchInput placeholder="Enter Student name" />
+                </Box>
+     <CustomTable columns={studentColumns} data={studentData}/>
+            </section>
+           
+            
+        </TaskStyled>
   )
 }
 

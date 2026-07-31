@@ -1,10 +1,32 @@
 import styled from "styled-components";
 import bgImage from "./images/bg.jpg";
 import adminBg from "./images/admin.jpg";
+import boxBgBlue from "../assets/images/boxBg.png";
 
+
+export const NotfoundStyle = styled.div`
+    height: calc(100vh - 88px);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+.alignCenter{
+        display: flex;
+    flex-direction: column;
+    gap: 32px;
+    text-align: center;
+    & img{
+      width: 300px;
+      display: block;
+    margin: 0 auto;
+    }
+}
+    
+
+`
 export const GlobalStyle = styled.div`
 .globalCss{
-background: rgb(247 248 250);
+// rgba(237, 245, 254, 1)
+background:rgb(246, 246, 246) ;
 }
   
   padding: 0;
@@ -26,6 +48,11 @@ width: calc(100% + 24px);
 margin: 0 0 0 -24px;
  
   & .headerRight {
+  & div: first-child{
+  display: flex;
+    gap: 12px;
+    align-items: center;
+  }
     display: flex;
     gap: 16px;
     align-items: center;
@@ -40,7 +67,7 @@ margin: 0 0 0 -24px;
     box-shadow: none;
     & .MuiToolbar-regular {
       padding: 0 16px;
-          border: 1px solid #334155;
+              box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.03);
       justify-content: space-between;
     }
   }
@@ -52,11 +79,42 @@ export const CardStyle = styled.div`
     justify-content: space-between;
     & .MuiPaper-elevation {
       width: 100%;
-      border-radius: 12px;
+      border-radius: 16px;
     }
+      .css-1gcoktp-MuiCardContent-root{
+      display: flex;
+      gap: 12px;
+      flex-direction: column;
+      cursor: pointer;
+      transition: .3s;
+
+&:hover{
+    transform: translateY(-6px);
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+      }
     .css-1gcoktp-MuiCardContent-root {
-      padding: 24px;
-      background: hsl(241.25deg 96% 90.2%);
+
+      & .common{
+        background: rgb(255, 255, 255);
+    display: flex;
+    width: 42px;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    border-radius: 12px;
+    padding: 0px 8px;
+    font-weight: bold;
+    line-height: 0;
+      }
+    & .up{
+    color: #00875A;
+    }
+
+    & .down{
+    color: #DE350B;
+    }
     }
   }
 `;
@@ -81,6 +139,12 @@ export const AppStyle = styled.div`
 padding-right: 24px;
 }
 .darkBg {
+& .scrollContent .css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline{
+border: 1px solid #000;
+}
+& .scrollContent input:: placeholder{
+color: #000;
+}
 & input::placeholder{
     color: #fff;
     }
@@ -93,8 +157,12 @@ color: #194163;
 border: 1px solid #fff;
 }
 & ul a{
-color: #fff;
+background: #fff;
 border: 1px solid #fff;
+}
+ul a.active,ul a:hover{
+      background: rgb(15, 23, 42);
+    color: rgb(255, 255, 255);
 }
 & button{
 background: #fff;
@@ -108,7 +176,9 @@ color: #fff;
 border: 1px solid #fff;
 }
 & .sideBarbg{
-  background: #111827;
+  // background: #111827;
+      background-image: url(${boxBgBlue}), linear-gradient(305.67deg, rgba(52, 139, 242, 1) 0%, rgba(33, 104, 219, 1) 100%);
+
   color: #fff;
 }
  
@@ -146,8 +216,12 @@ export const SidebarStyle = styled.div`
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     height: calc(-48px + 100vh);
     min-width: 260px;
-    background: rgb(255, 255, 255);
+    // background: rgb(255, 255, 255);
     padding: 24px;
+        box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
+    padding: 20px 16px;
+    background-repeat: no-repeat;
+    background-position: left top;
 }
     .darkBg{
     
@@ -175,19 +249,22 @@ export const SidebarStyle = styled.div`
       gap: 12px;
       cursor: pointer;
       padding: 8px 16px;
-          border: 1px solid #000;
-    color: #000;
-border-radius: 8px;
+      font-weight: bold;
+          border: 1px solid #fff;
+    color: rgb(1, 79, 197);
+    background: #fff;
+border-radius: 4px;
 transition: 400ms;
 box-sizing: border-box;
+box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 16px 0px;
  text-decoration: none;
     }
       & a.active, a:hover{
-      background: #212121;
+      background: rgb(1, 79, 197);
      
       color: #fff;
-      
-      
+      border: 1px solid rgb(1, 79, 197);
+          font-weight: bold;
       
       }
   }
@@ -207,7 +284,7 @@ export const NotificationStyle = styled.div`
     justify-content: center;
     color: #fff;
   }
-    & span{font-size: 12px;}
+    & span{font-size: 12px; color: #959595}
 `;
 export const LoginStyle = styled.div`
 .posRelative{
@@ -285,8 +362,11 @@ height: 100vh;
 export const TaskStyled = styled.div`
 .TableUi{
 border: 1px solid rgba(224, 224, 224, 1);
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.08);
 padding: 16px;
+background: #fff;
 border-radius: 4px;
+
 }
 
 .flexAlign{

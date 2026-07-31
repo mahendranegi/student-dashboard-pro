@@ -6,7 +6,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <GlobalStyle>
+      <div className='globalCss'>
     <App />
+    </div>
     </GlobalStyle>
   </React.StrictMode>
 );

@@ -74,7 +74,7 @@ const context = useContext(userContext);
   {theam}
 </Button>
         
-        <NotificationHead />
+        {/* <NotificationHead /> */}
       </div>
       </div>
     </SidebarStyle>

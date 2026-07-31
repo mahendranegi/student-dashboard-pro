@@ -3,13 +3,14 @@ import SearchIcon from '@mui/icons-material/Search';
 import TextField from "@mui/material/TextField";
 import { SearchStyled } from "../assets/styled";
 
-function SearchInput({placeholder}) {
+function SearchInput({placeholder,onChange}) {
   return (
     <SearchStyled>
         <div className='searchIcon'>
 <TextField
       fullWidth
       placeholder={placeholder}
+      onChange={onChange}
       variant="outlined"
       size="small"
      

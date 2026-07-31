@@ -42,6 +42,7 @@ const handleTheam = () =>{ setTheam((prev)=> { return prev != "Dark Mode" ? 'Dar
            <Route path="/teachers" element={<Teachers />} />
           <Route path="/tasks" element={<Tasks />} />
           <Route path="/profile" element={<Profile />} />
+           <Route path="*" element={<NotFound />} />
         </Route>
 
        
