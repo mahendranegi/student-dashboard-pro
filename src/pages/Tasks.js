@@ -15,10 +15,24 @@ import { tasks } from "../data/Tasks";
 import Notfound from "../pages/NotFound";
 import CustomModal from "../components/CustomModal";
 import CustomDrawer from "../components/CustomDrawer";
+import Alert from '@mui/material/Alert';
+import CheckIcon from '@mui/icons-material/Check';
+import CustomNotification from "../components/CustomNotification";
 function Tasks({ data }) {
+const [updatetask, setUpdatetask] = useState(tasks);
+const [filter, setFilter] = useState(tasks);
+const [notify, setNotify] = useState(false);
+const [deletenotify, setDeletenotify] = useState(false);
+const [task, setTask] = useState("");
+const [category, setCategory] = useState("");
+const [assigned, setAssigned] = useState("");
+const [date, setDate] = useState("");
+const [priority, setPriority] = useState("");
+const [status, setStatus] = useState("");
+const [des, setDes] = useState("");
+
   const [openTaskDrawer, setOpenTaskDrawer] = useState(false);
   const [val, setVal] = useState("");
-  const [filter, setFilter] = useState(tasks);
 
   const taskColumns = [
     { field: "title", header: "Title" },
@@ -52,23 +66,63 @@ function Tasks({ data }) {
     console.log(deleteRow, "deleter");
     setFilter(deleteRow);
 
-    console.log(id, data, "table row");
+    setDeletenotify(true);
+    setTimeout(() => {
+      setDeletenotify(false);
+    }, 2000);
   };
+//
 
+const handleCreateTask = () =>{
+  if(!task.trim() || !category.trim() || !assigned.trim() || !date.trim() || !priority.trim() || !status.trim() || !des.trim()){
+    alert('Please fill the all field');
+  }
+  else{
+    console.log(task,category);
+    
+  const newTask = {
+    id: Date.now(),
+    title: task,
+    category,
+    assignedTo: assigned,
+    dueDate: date,
+    priority,
+    status,
+    description: des,
+  };
+   const updatedTasks = [...updatetask, newTask];
+
+  setUpdatetask(updatedTasks);
+  setFilter(updatedTasks);
+    setTask('');
+    setCategory('');
+    setAssigned('');
+    setDate('');
+    setPriority('');
+    setStatus('');
+    setDes('')
+setOpenTaskDrawer(false)
+
+setNotify(true);
+setTimeout(() => {
+  setNotify(false);
+}, 2000);
+  }
+}
   return (
     <TaskStyled>
       <div className="flexAlign">
         <h1>Tasks </h1>
-        
-
           <CustomDrawer
-  open={openTaskDrawer}
-  onClose={() => setOpenTaskDrawer(false)}
-  title="Create Task"
->
-  <Box component="form">
+          open={openTaskDrawer}
+          onClose={() => setOpenTaskDrawer(false)}
+          title="Create Task"
+        > 
+           <Box component="form">
             <TextField
               fullWidth
+              value={task}
+              onChange={(e)=>setTask(e.target.value)}
               label="Task Title"
               placeholder="Enter task title"
               sx={{ mb: 2 }}
@@ -77,7 +131,7 @@ function Tasks({ data }) {
             <FormControl fullWidth sx={{ mb: 2 }}>
               <InputLabel>Category</InputLabel>
 
-              <Select label="Category">
+              <Select label="Category"  value={category}  onChange={(e)=>setCategory(e.target.value)}>
                 <MenuItem value="Administration">Administration</MenuItem>
                 <MenuItem value="Exam">Exam</MenuItem>
                 <MenuItem value="Finance">Finance</MenuItem>
@@ -88,7 +142,7 @@ function Tasks({ data }) {
             <FormControl fullWidth sx={{ mb: 2 }}>
               <InputLabel>Assigned To</InputLabel>
 
-              <Select label="Assigned To">
+              <Select label="Assigned To" value={assigned}  onChange={(e)=>setAssigned(e.target.value)}> 
                 <MenuItem value="Sneha Verma">Sneha Verma</MenuItem>
                 <MenuItem value="Amit Kumar">Amit Kumar</MenuItem>
                 <MenuItem value="Arun">Arun</MenuItem>
@@ -97,6 +151,8 @@ function Tasks({ data }) {
 
             <TextField
               fullWidth
+              value={date}
+              onChange={(e)=>setDate(e.target.value)}
               type="date"
               label="Due Date"
               InputLabelProps={{ shrink: true }}
@@ -106,7 +162,7 @@ function Tasks({ data }) {
             <FormControl fullWidth sx={{ mb: 2 }}>
               <InputLabel>Priority</InputLabel>
 
-              <Select label="Priority">
+              <Select label="Priority"  value={priority}  onChange={(e)=>setPriority(e.target.value)}>
                 <MenuItem value="Low">Low</MenuItem>
                 <MenuItem value="Medium">Medium</MenuItem>
                 <MenuItem value="High">High</MenuItem>
@@ -116,7 +172,7 @@ function Tasks({ data }) {
             <FormControl fullWidth sx={{ mb: 2 }}>
               <InputLabel>Status</InputLabel>
 
-              <Select label="Status">
+              <Select label="Status" value={status} onChange={(e)=>setStatus(e.target.value)}>
                 <MenuItem value="Pending">Pending</MenuItem>
                 <MenuItem value="Completed">Completed</MenuItem>
               </Select>
@@ -125,6 +181,8 @@ function Tasks({ data }) {
             <TextField
               fullWidth
               multiline
+              value={des}
+              onChange={(e)=>setDes(e.target.value)}
               rows={4}
               label="Description"
               placeholder="Write task details..."
@@ -140,7 +198,7 @@ function Tasks({ data }) {
             >
               <Button variant="outlined">Cancel</Button>
 
-              <Button variant="contained">Create Task</Button>
+              <Button variant="contained" onClick={handleCreateTask}>Create Task</Button>
             </Box>
           </Box>
 </CustomDrawer>
@@ -175,6 +233,8 @@ function Tasks({ data }) {
           />
         )}
       </section>
+       {notify && <CustomNotification title="New task is updated.." />}
+       {deletenotify && <CustomNotification title="Task Deteted.." />}
     </TaskStyled>
   );
 }

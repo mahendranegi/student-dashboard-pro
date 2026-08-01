@@ -47,7 +47,7 @@ function Login() {
           <p>Hey, Enter your details to sign in to your account.</p>
         </div>
 
-        <Box>
+        <Box  sx={{ mb: 2 }}>
           <Typography>Email</Typography>
 
           <TextField

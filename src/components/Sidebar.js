@@ -8,6 +8,8 @@ import SmsFailedIcon from '@mui/icons-material/SmsFailed';
 import NotificationHead from './NotificationHead';
 import Button from "@mui/material/Button";
 import LightModeIcon from '@mui/icons-material/LightMode';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { userContext } from '../context/ContextData';
 import { NavLink } from "react-router-dom";
@@ -40,19 +42,19 @@ const context = useContext(userContext);
           </li>
         <li>
           <NavLink to="/students">
-      <SmsFailedIcon />
+      <PeopleAltIcon />
       Students
     </NavLink>
           </li>
           <li>
           <NavLink to="/teachers">
-      <SmsFailedIcon />
+      <AccessibilityIcon />
       Teachers
     </NavLink>
           </li>
         <li>
            <NavLink to="/profile">
-      <AccessibilityIcon />
+      <ManageAccountsIcon />
       Profile
     </NavLink>
 </li>

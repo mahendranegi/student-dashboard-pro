@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { CustomHeader } from "../assets/styled";
 import Button from "@mui/material/Button";
 import AppBar from '@mui/material/AppBar';
@@ -17,9 +17,18 @@ import InputAdornment from "@mui/material/InputAdornment";
 import { userContext } from '../context/ContextData';
 
 import SearchInput from './SearchInput';
+import Dropdown from './Dropdown';
 function Header({user,handleSideBarToggle,open}) {
   const{theam} = useContext(userContext)
+  const[showProfile,setShowProfile] = useState(true);
   console.log(user,'____Header')
+
+  //
+
+  const handleNotify = () =>{
+    console.log('jjjj')
+setShowProfile((prev)=> !prev);
+  }
   return (
     <CustomHeader>
        <Box sx={{ flexGrow: 1 }}>
@@ -49,8 +58,9 @@ function Header({user,handleSideBarToggle,open}) {
       </Badge>
     </IconButton>
    </div>
-<NotificationHead user={user}/>
+<NotificationHead user={user} onClick={handleNotify} showProfile={showProfile}/>
 </div>
+{/* <Dropdown /> */}
         </Toolbar>
       </AppBar>
     </Box>

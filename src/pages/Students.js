@@ -19,8 +19,8 @@ function Students() {
 ];
   return (
      <TaskStyled>
-            <Box sx={{ mb: 4 }}>
-         <h1><DragIndicatorIcon />Students </h1>
+            <Box sx={{ mb: 3 }}>
+         <h1> Students </h1>
       </Box>
     
             <section className='TableUi'>

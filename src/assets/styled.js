@@ -232,57 +232,57 @@ export const AppStyle = styled.div`
     .searchIcon {
       width: 100% !important;
     }
-      .sideBarbg{
+    .sideBarbg {
       position: fixed;
-    top: 44px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #fff;
-      }
+      top: 44px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #fff;
+    }
   }
 `;
 
 export const SidebarStyle = styled.div`
-.logoWrapper {
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-  border-radius: 8px;
-}
+  .logoWrapper {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 8px;
+  }
 
-.logoImg {
-  width: 150px;
-  display: block;
-}
+  .logoImg {
+    width: 150px;
+    display: block;
+  }
 
-/* Shine Effect */
-.logoWrapper::before {
-  content: "";
-  position: absolute;
-  top: -30%;
-  left: -75%;
-  width: 40%;
-  height: 160%;
-  background: linear-gradient(
-    120deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0.75) 50%,
-    rgba(255,255,255,0) 100%
-  );
-  transform: rotate(25deg);
-  animation: shine 2.8s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes shine {
-  0% {
+  /* Shine Effect */
+  .logoWrapper::before {
+    content: "";
+    position: absolute;
+    top: -30%;
     left: -75%;
+    width: 40%;
+    height: 160%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.75) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(25deg);
+    animation: shine 2.8s linear infinite;
+    pointer-events: none;
   }
-  100% {
-    left: 150%;
+
+  @keyframes shine {
+    0% {
+      left: -75%;
+    }
+    100% {
+      left: 150%;
+    }
   }
-}
   .sideBarbg {
     display: flex;
     flex-direction: column;
@@ -316,7 +316,8 @@ export const SidebarStyle = styled.div`
 
   & ul {
     list-style: none;
-    padding: 0;
+    border-top: 2px solid #ccc;
+    padding: 24px 0 0;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -346,6 +347,47 @@ export const SidebarStyle = styled.div`
   }
 `;
 export const NotificationStyle = styled.div`
+  position: relative;
+  .cardSec {
+    background-clip: padding-box;
+    background-color: #fff;
+    box-shadow:
+      0 3px 6px -4px rgba(0, 0, 0, 0.12),
+      0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 9px 28px 8px rgba(0, 0, 0, 0.05);
+    list-style-type: none;
+    margin: 0;
+    outline: none;
+    position: relative;
+    text-align: left;
+    border-radius: 8px;
+    padding: 12px !important;
+    min-width: 268px;
+    position: absolute;
+    z-index: 9;
+    right: 0;
+    top: 56px;
+    & ul {
+      padding: 20px 0px 0px 8px;
+      list-style: none;
+      margin: 16px 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border-top: 2px solid rgb(246, 246, 246);
+      & li {
+        padding: 10px;
+        background: #f6f6f6;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+    }
+  }
+  .info {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
   display: flex;
   gap: 4px;
   & .user {
@@ -439,6 +481,13 @@ height: 100vh;
 }`;
 
 export const TaskStyled = styled.div`
+  .MuiAlert-colorSuccess {
+    position: fixed;
+    top: 5px;
+    right: 0;
+    z-index: 9;
+    width: 300px;
+  }
   .TableUi {
     border: 1px solid rgba(224, 224, 224, 1);
     box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.08);
