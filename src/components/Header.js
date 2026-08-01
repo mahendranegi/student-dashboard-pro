@@ -7,6 +7,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import Badge from '@mui/material/Badge';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -14,8 +15,9 @@ import Notification from './NotificationHead';
 import NotificationHead from './NotificationHead';
 import InputAdornment from "@mui/material/InputAdornment";
 import { userContext } from '../context/ContextData';
+
 import SearchInput from './SearchInput';
-function Header({user}) {
+function Header({user,handleSideBarToggle,open}) {
   const{theam} = useContext(userContext)
   console.log(user,'____Header')
   return (
@@ -23,7 +25,14 @@ function Header({user}) {
        <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
+          <div style={{display: 'flex',gap: '12px',alignItems:'center'}}>
+          
+          
+
+{open === true ? <MenuIcon onClick={handleSideBarToggle} style={{cursor: 'pointer',color: '#000',fontWeight: 'bold',fontSize: '36px'}}/> : <CloseIcon onClick={handleSideBarToggle} style={{cursor: 'pointer',color: '#000',fontWeight: 'bold',fontSize: '36px'}}/>}
+
           <SearchInput placeholder="Enter project name.."/>
+          </div>
          
          <div className="headerRight">
           

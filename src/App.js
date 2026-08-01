@@ -1,5 +1,6 @@
 import Button from "@mui/material/Button";
 import { BrowserRouter,Routes,Route, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // import {Header} from '../'
 import Header from './components/Header';
@@ -11,7 +12,6 @@ import Sidebar from "./components/Sidebar";
 import { AppStyle } from "./assets/styled";
 import Admin from "./pages/Admin";
 import CustomTable from "./components/CustomTable";
-import { loginData } from "./auth/LoginData";
 import { useState } from "react";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
@@ -21,22 +21,24 @@ import Students from "./pages/Students";
 import Tasks from "./pages/Tasks";
 import Profile from "./layout/Profile";
 import Teachers from "./pages/Teachers";
+import {AuthProvider} from "./context/ContextData"
+
 function App() {
 const storedUser = localStorage.getItem("user");
-const[color,setColor] = useState("red")
 const user = storedUser ? JSON.parse(storedUser) : null;
-const[theam, setTheam ] = useState("Dark Mode"); 
-const handleTheam = () =>{ setTheam((prev)=> { return prev != "Dark Mode" ? 'Dark Mode' : 'Light Mode' }) }
 
-// const name1 = "Mahendra"
+const[open,setOpen] = useState(true);
 
+const handleSideBarToggle = () =>{
+  setOpen((prev)=> !prev)
+}
   return (
-    <userContext.Provider value={{theam,setTheam,handleTheam}}>
+    <AuthProvider>
     <BrowserRouter>
     <AppStyle>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route element={user  ? <Layout  user={user}/> : <Navigate to="/" replace />}>
+        <Route element={user  ? <Layout setOpen={setOpen} handleSideBarToggle={handleSideBarToggle} open= {open}  user={user}/> : <Navigate to="/" replace />}>
           <Route path="/dashboard" element={<Dashboard  user={user}/>} />
           <Route path="/students" element={<Students />} />
            <Route path="/teachers" element={<Teachers />} />
@@ -68,7 +70,7 @@ const handleTheam = () =>{ setTheam((prev)=> { return prev != "Dark Mode" ? 'Dar
     
     </AppStyle>
     </BrowserRouter>
-    </userContext.Provider>
+    </AuthProvider>
   );
 }
 

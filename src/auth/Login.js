@@ -1,116 +1,116 @@
 import { Box, Typography, TextField, Button } from "@mui/material";
 import { LoginStyle } from "../assets/styled";
-import { useState } from "react";
-import { loginData } from "./LoginData";
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import Admin from "../pages/Admin";
+import { useState, useContext } from "react";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useNavigate } from "react-router-dom";
-function Login({data}) {
+import { userContext } from "../context/ContextData";
+
+function Login() {
   const navigate = useNavigate();
-   const[loginShow,setLoginShow] = useState(true);
-  const[email,setEmail] = useState('');
-  const[password,setPassword] = useState('');
-  const[error,setError] = useState(false);
-  const[type,setType] = useState("password");
+
+  const { login } = useContext(userContext);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
+  const [type, setType] = useState("password");
+
   const handleSubmit = (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  if (email.trim() === "" || password.trim() === "") {
-    setError(true);
-    return;
-  }
+    if (!email.trim() || !password.trim()) {
+      setError(true);
+      return;
+    }
 
-  setError(false);
-  loginFunc()
-  setEmail("");
-  setPassword("");
-};
+    setError(false);
 
-const loginFunc = () => {
+    const success = login(email, password);
 
-  const user = loginData.find((item)=>{
-    return item.email === email && item.password.toString() === password
-  })
-  if (user) {
-  localStorage.setItem("user", JSON.stringify(user));
- 
-  setLoginShow(false)
-  navigate("/dashboard"); // Redirect to Dashboard
-} else {
-  alert("Invalid Email or Password");
-}
-};
+    if (success) {
+      navigate("/dashboard");
+    } else {
+      alert("Invalid Email or Password");
+    }
+  };
 
-const handlePasswordShow = () =>{
-  setType((prev)=> {
-    return prev === 'password' ? 'text' : 'password';
-  })
-}
+  const handlePasswordShow = () => {
+    setType((prev) => (prev === "password" ? "text" : "password"));
+  };
+
   return (
-    <>
-    {loginShow && <LoginStyle>
+    <LoginStyle>
       <form onSubmit={handleSubmit}>
         <div className="loginHead">
           <h1>Student Login</h1>
-          <p>Hey, Enter your details to get sign in to your account</p>
-          <em></em>
+          <p>Hey, Enter your details to sign in to your account.</p>
         </div>
+
         <Box>
-          <Typography sx={{ fontWeight: 500 }}>Email</Typography>
+          <Typography>Email</Typography>
 
           <TextField
             fullWidth
             placeholder="Enter your email"
-            variant="outlined"
             value={email}
-            onChange={(e)=>setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
-         {error && email.trim() === "" && (
-  <p className="error">Please enter email</p>
-)}
+
+          {error && email.trim() === "" && (
+            <p className="error">Please enter email</p>
+          )}
         </Box>
-        <Box sx={{ mt: 4}} className="posRelative">
-          <Typography sx={{ fontWeight: 500 }}>Password</Typography>
+
+        <Box mt={3} className="posRelative">
+          <Typography>Password</Typography>
 
           <TextField
             fullWidth
             type={type}
             placeholder="Enter your password"
-            variant="outlined"
             value={password}
-            onChange={(e)=>setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
+
           {error && password.trim() === "" && (
-  <p className="error">Please enter password</p>
-)}
-{type === 'password' ? <RemoveRedEyeIcon className="eyeIcon"  onClick={handlePasswordShow}/> : <VisibilityOffIcon className="eyeIcon"  onClick={handlePasswordShow}/>}
+            <p className="error">Please enter password</p>
+          )}
 
+          {type === "password" ? (
+            <RemoveRedEyeIcon
+              className="eyeIcon"
+              onClick={handlePasswordShow}
+            />
+          ) : (
+            <VisibilityOffIcon
+              className="eyeIcon"
+              onClick={handlePasswordShow}
+            />
+          )}
+        </Box>
 
+        <Box mt={2} mb={4}>
+          <p style={{ textAlign: "right" }}>
+            <Button>Forgot Password?</Button>
+          </p>
         </Box>
-        <Box sx={{ mb: 4}}>
-            <p style={{textAlign:'right'}}><Button>Forgot Password?</Button></p>
-        </Box>
-        
+
         <Button
           variant="contained"
           fullWidth
-          onClick={handleSubmit}
+          type="submit"
           sx={{
-            backgroundColor: "#488df0",
-            color: "#fff",
+            background: "#488df0",
             "&:hover": {
-              backgroundColor: "#488df0",
+              background: "#488df0",
             },
           }}
         >
           Login
         </Button>
       </form>
-    </LoginStyle>}
-    
-   
-    </>
+    </LoginStyle>
   );
 }
 

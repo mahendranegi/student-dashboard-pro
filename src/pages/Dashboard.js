@@ -27,7 +27,7 @@ function Dashboard({user}) {
       </Box>
 
    
-    <div style={{display: 'flex',gap: '16px'}}> 
+    <div className='flexBody'> 
 <BarChart
       xAxis={[
         {

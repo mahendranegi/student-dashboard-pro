@@ -6,19 +6,19 @@ import {
   Button,
 } from "@mui/material";
 
-function SimpleDialog({ open, onClose }) {
+function SimpleDialog({ open, onClose,handleDelete }) {
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>Task Actions</DialogTitle>
+      {/* <DialogTitle>Task Actions</DialogTitle>
 
       <DialogContent>
         Select an action for this task.
-      </DialogContent>
+      </DialogContent> */}
 
       <DialogActions>
         <Button onClick={onClose}>Cancel</Button>
         <Button>Edit</Button>
-        <Button color="error">
+        <Button color="error" onClick={handleDelete}>
           Delete
         </Button>
       </DialogActions>

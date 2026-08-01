@@ -4,15 +4,15 @@ import Sidebar from '../components/Sidebar'
 import { Outlet } from "react-router-dom";
 import { userContext } from '../context/ContextData';
 
-function Layout({user}) {
+function Layout({user,setOpen, open,handleSideBarToggle}) {
 const {theam} = useContext(userContext);
   console.log('user________',user)
   return (
-    <div style={{ display: "flex", gap: '24px' }} className={theam === "Dark Mode" ? 'abc' : 'darkBg'}>
-      <Sidebar/>
+    <div  className={theam === "Dark Mode" ? 'commonLayoutSec' : 'commonLayoutSec darkBg'}>
+      {open && <Sidebar open= {open}/>}
 
       <div className='rightPannel' style={{width: '100%',}}>
-        <Header user={user}/>
+        <Header handleSideBarToggle={handleSideBarToggle} setOpen={setOpen} open= {open} user={user} />
 
         <div className="scrollContent">
           <Outlet />

@@ -3,32 +3,32 @@ import bgImage from "./images/bg.jpg";
 import adminBg from "./images/admin.jpg";
 import boxBgBlue from "../assets/images/boxBg.png";
 
-
 export const NotfoundStyle = styled.div`
-    height: calc(100vh - 88px);
-    align-items: center;
+  // height: calc(100vh - 88px);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #f6f6f6;
+  padding: 24px;
+  border-radius: 12px;
+  .alignCenter {
     display: flex;
-    justify-content: center;
-.alignCenter{
-        display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 12px;
     text-align: center;
-    & img{
-      width: 300px;
+    & img {
+      width: 160px;
       display: block;
-    margin: 0 auto;
+      margin: 0 auto;
     }
-}
-    
-
-`
+  }
+`;
 export const GlobalStyle = styled.div`
-.globalCss{
-// rgba(237, 245, 254, 1)
-background:rgb(246, 246, 246) ;
-}
-  
+  .globalCss {
+    // rgba(237, 245, 254, 1)
+    background: rgb(246, 246, 246);
+  }
+
   padding: 0;
   margin: 0;
   font-family: "Poppins", sans-serif;
@@ -44,15 +44,15 @@ background:rgb(246, 246, 246) ;
   }
 `;
 export const CustomHeader = styled.div`
-width: calc(100% + 24px);
-margin: 0 0 0 -24px;
- 
+  width: calc(100% + 24px);
+  margin: 0 0 0 -24px;
+
   & .headerRight {
-  & div: first-child{
-  display: flex;
-    gap: 12px;
-    align-items: center;
-  }
+    &div: first-child {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
     display: flex;
     gap: 16px;
     align-items: center;
@@ -67,7 +67,7 @@ margin: 0 0 0 -24px;
     box-shadow: none;
     & .MuiToolbar-regular {
       padding: 0 16px;
-              box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.03);
+      box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.03);
       justify-content: space-between;
     }
   }
@@ -81,40 +81,39 @@ export const CardStyle = styled.div`
       width: 100%;
       border-radius: 16px;
     }
-      .css-1gcoktp-MuiCardContent-root{
+    .css-1gcoktp-MuiCardContent-root {
       display: flex;
       gap: 12px;
       flex-direction: column;
       cursor: pointer;
-      transition: .3s;
+      transition: 0.3s;
 
-&:hover{
-    transform: translateY(-6px);
-    box-shadow:0 15px 35px rgba(0,0,0,.15);
-}
+      &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
       }
+    }
     .css-1gcoktp-MuiCardContent-root {
-
-      & .common{
+      & .common {
         background: rgb(255, 255, 255);
-    display: flex;
-    width: 42px;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    color: rgb(0, 0, 0);
-    border-radius: 12px;
-    padding: 0px 8px;
-    font-weight: bold;
-    line-height: 0;
+        display: flex;
+        width: 42px;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        color: rgb(0, 0, 0);
+        border-radius: 12px;
+        padding: 0px 8px;
+        font-weight: bold;
+        line-height: 0;
       }
-    & .up{
-    color: #00875A;
-    }
+      & .up {
+        color: #00875a;
+      }
 
-    & .down{
-    color: #DE350B;
-    }
+      & .down {
+        color: #de350b;
+      }
     }
   }
 `;
@@ -135,66 +134,76 @@ export const StudenStyle = styled.div`
 `;
 
 export const AppStyle = styled.div`
-.scrollContent{
-padding-right: 24px;
-}
-.darkBg {
-& .scrollContent .css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline{
-border: 1px solid #000;
-}
-& .scrollContent input:: placeholder{
-color: #000;
-}
-& input::placeholder{
-    color: #fff;
+  .commonLayoutSec {
+    display: flex;
+  }
+  .scrollContent {
+    padding-right: 24px;
+  }
+  .darkBg {
+    &
+      .scrollContent
+      .css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline {
+      border: 1px solid #000;
     }
-& .TableUi{
-background: #fff;
-}
-& .flexAlign button{
-background: #fff;
-color: #194163;
-border: 1px solid #fff;
-}
-& ul a{
-background: #fff;
-border: 1px solid #fff;
-}
-ul a.active,ul a:hover{
+    & .scrollContent input:: placeholder {
+      color: #000;
+    }
+    & input::placeholder {
+      color: #fff;
+    }
+    & .TableUi {
+      background: #fff;
+    }
+    & .flexAlign button {
+      background: #fff;
+      color: #194163;
+      border: 1px solid #fff;
+    }
+    & ul a {
+      background: #fff;
+      border: 1px solid #fff;
+    }
+    ul a.active,
+    ul a:hover {
       background: rgb(15, 23, 42);
-    color: rgb(255, 255, 255);
-}
-& button{
-background: #fff;
-color: #194163;
-}
-& .searchIcon svg{
-color: #fff;
+      color: rgb(255, 255, 255);
+    }
+    & button {
+      background: #fff;
+      color: #194163;
+    }
+    & .searchIcon svg {
+      color: #fff;
+    }
+    & .css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline {
+      border: 1px solid #fff;
+    }
+    & .sideBarbg {
+      // background: #111827;
+      background-image:
+        url(${boxBgBlue}),
+        linear-gradient(
+          305.67deg,
+          rgba(52, 139, 242, 1) 0%,
+          rgba(33, 104, 219, 1) 100%
+        );
 
-}
-& .css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline{
-border: 1px solid #fff;
-}
-& .sideBarbg{
-  // background: #111827;
-      background-image: url(${boxBgBlue}), linear-gradient(305.67deg, rgba(52, 139, 242, 1) 0%, rgba(33, 104, 219, 1) 100%);
+      color: #fff;
+    }
 
-  color: #fff;
-}
- 
-background: #0F172A;
-color: #F8FAFC;
-& header{
-background: #1E3A8A;
-color: #fff;
-
-
-}
-}
+    background: #0f172a;
+    color: #f8fafc;
+    & header {
+      background: #1e3a8a;
+      color: #fff;
+    }
+  }
   .rightPannel {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    padding: 0 0 0 24px;
 
     & .scrollContent {
       overflow-x: auto;
@@ -202,14 +211,79 @@ color: #fff;
       padding-right: 24px;
     }
   }
-    .dark{
+  .dark {
     background: #777;
     color: #fff;
+  }
+  .flexBody {
+    display: flex;
+    gap: 24px;
+  }
+  @media screen and (max-width: 600px) {
+    .commonLayoutSec {
+      flex-direction: column-reverse;
     }
+    .cardUi {
+      flex-direction: column;
+    }
+    .flexBody {
+      flex-direction: column;
+    }
+    .searchIcon {
+      width: 100% !important;
+    }
+      .sideBarbg{
+      position: fixed;
+    top: 44px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+      }
+  }
 `;
 
 export const SidebarStyle = styled.div`
-.sideBarbg{
+.logoWrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.logoImg {
+  width: 150px;
+  display: block;
+}
+
+/* Shine Effect */
+.logoWrapper::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: -75%;
+  width: 40%;
+  height: 160%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.75) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: rotate(25deg);
+  animation: shine 2.8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+  .sideBarbg {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -218,23 +292,25 @@ export const SidebarStyle = styled.div`
     min-width: 260px;
     // background: rgb(255, 255, 255);
     padding: 24px;
-        box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
     padding: 20px 16px;
     background-repeat: no-repeat;
     background-position: left top;
-}
-    .darkBg{
-    
-    background: #0F172A;
+  }
+  .darkBg {
+    background: #0f172a;
     color: #fff;
-
-    }
+  }
   & .sideBarFooter {
     display: flex;
     gap: 16px;
     flex-direction: column;
-    & button{
-        width: max-content;
+    & button {
+      width: max-content;
+      border-radius: 30px;
+      height: 32px;
+      padding: 0 12px;
+      margin: 0 auto;
     }
   }
 
@@ -244,29 +320,29 @@ export const SidebarStyle = styled.div`
     display: flex;
     flex-direction: column;
     gap: 24px;
-    &  a{
+    & a {
       display: flex;
       gap: 12px;
       cursor: pointer;
       padding: 8px 16px;
       font-weight: bold;
-          border: 1px solid #fff;
-    color: rgb(1, 79, 197);
-    background: #fff;
-border-radius: 4px;
-transition: 400ms;
-box-sizing: border-box;
-box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 16px 0px;
- text-decoration: none;
+      border: 1px solid #fff;
+      color: rgb(1, 79, 197);
+      background: #fff;
+      border-radius: 4px;
+      transition: 400ms;
+      box-sizing: border-box;
+      box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 16px 0px;
+      text-decoration: none;
     }
-      & a.active, a:hover{
+    & a.active,
+    a:hover {
       background: rgb(1, 79, 197);
-     
+
       color: #fff;
       border: 1px solid rgb(1, 79, 197);
-          font-weight: bold;
-      
-      }
+      font-weight: bold;
+    }
   }
 `;
 export const NotificationStyle = styled.div`
@@ -284,7 +360,10 @@ export const NotificationStyle = styled.div`
     justify-content: center;
     color: #fff;
   }
-    & span{font-size: 12px; color: #959595}
+  & span {
+    font-size: 12px;
+    color: #959595;
+  }
 `;
 export const LoginStyle = styled.div`
 .posRelative{
@@ -360,21 +439,20 @@ height: 100vh;
 }`;
 
 export const TaskStyled = styled.div`
-.TableUi{
-border: 1px solid rgba(224, 224, 224, 1);
+  .TableUi {
+    border: 1px solid rgba(224, 224, 224, 1);
     box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.08);
-padding: 16px;
-background: #fff;
-border-radius: 4px;
+    padding: 16px;
+    background: #fff;
+    border-radius: 4px;
+  }
 
-}
-
-.flexAlign{
-display: flex;
-justify-content: space-between;
-margin: 0 0 24px;
-}
-`
+  .flexAlign {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 24px;
+  }
+`;
 export const SearchStyled = styled.div`
 .searchIcon{
     position: relative;
@@ -391,5 +469,4 @@ export const SearchStyled = styled.div`
     margin-left: 16px;
 }
 }
-`
-
+`;

@@ -13,19 +13,22 @@ import { userContext } from '../context/ContextData';
 import { NavLink } from "react-router-dom";
 import Switch from '@mui/material/Switch';
 const label = { slotProps: { input: { 'aria-label': 'Switch demo' } } };
-function Sidebar() {
+function Sidebar({open}) {
 const {theam,handleTheam,setTheam} = useContext(userContext)
 const context = useContext(userContext);
   return (
     <SidebarStyle>
       <div className="sideBarbg">
       <div>
-        <img src={logoImg} alt = {logoImg} />
+       <div className="logoWrapper">
+          <img src={logoImg} alt="SchoolHub Logo" className="logoImg" />
+        </div>
       <ul>
         <li>
           <NavLink to="/dashboard">
       <DashboardIcon />
-      Dashboard
+      {open === true ? 'Dashboard' : ''}
+      
     </NavLink>
          </li>
         <li>

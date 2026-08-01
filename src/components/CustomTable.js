@@ -1,7 +1,8 @@
 import { useState } from "react";
 import * as React from "react";
-import EditIcon from '@mui/icons-material/Edit';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import EditIcon from "@mui/icons-material/Edit";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import DeleteIcon from '@mui/icons-material/Delete';
 import {
   Dialog,
   DialogTitle,
@@ -21,44 +22,40 @@ import {
 } from "@mui/material";
 import SimpleDialog from "./SimpleDialog";
 
-
+export default function CustomTable({ columns, data,setFilter,onDelete, }) {
  
-
-export default function CustomTable({columns,data}) {
-  const [open, setOpen] = useState(false);
- const handleClickOpen = () => {
-  setOpen(true);
-};
-
-const handleClose = () => {
-  setOpen(false);
-};
+ 
   return (
     <TableContainer component={Paper} elevation={3}>
       <Table>
         <TableHead>
           <TableRow sx={{ background: "#f5f7fb" }}>
-            {columns.map((col)=>{
-              return <TableCell key = {col.field}><b>{col.header}</b></TableCell>
+            {columns.map((col) => {
+              return (
+                <TableCell key={col.field}>
+                  <b>{col.header}</b>
+                </TableCell>
+              );
             })}
-              <TableCell>
+            <TableCell>
               <b>Action</b>
             </TableCell>
           </TableRow>
         </TableHead>
 
         <TableBody>
-          {data.map((row) => (
+          {data.map((row,id) => (
             <TableRow key={row.id} hover>
-              {columns.map((col)=>(
+            
+              {columns.map((col) => (
                 <TableCell key={col.field}>{row[col.field]}</TableCell>
               ))}
-                <TableCell><EditIcon /> <MoreVertIcon onClick={handleClickOpen}/>
-                    <SimpleDialog
-    open={open}
-    onClose={handleClose}
-  />
-                </TableCell>
+              <TableCell>
+                <EditIcon />
+                <DeleteIcon onClick={()=>onDelete(row.id)}/>
+                
+                
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
