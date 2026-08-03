@@ -51,8 +51,11 @@ export default function CustomTable({ columns, data,setFilter,onDelete, }) {
                 <TableCell key={col.field}>{row[col.field]}</TableCell>
               ))}
               <TableCell>
-                <EditIcon />
-                <DeleteIcon onClick={()=>onDelete(row.id)}/>
+                <div style={{display: 'flex',gap: '12px',cursor: 'pointer'}}>
+                  <EditIcon sx={{ color: "#0288d1", cursor: "pointer" }}/>
+                <DeleteIcon onClick={()=>onDelete(row.id)} sx={{ color: "#d32f2f", cursor: "pointer" }}/>
+                </div>
+                
                 
                 
               </TableCell>

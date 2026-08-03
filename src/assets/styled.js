@@ -147,8 +147,15 @@ export const AppStyle = styled.div`
         padding: 16px;
     background: #fff;
     border-radius: 8px;
+
   }
   .darkBg {
+  .profileNotify,.rightPannel{
+  background: rgb(50 50 50) !important;
+  }
+.flexBodyMain .active,.flexBodyMain li:hover{
+background: rgba(58,125,213,.2);
+}
   .scrollContent{
       padding: 16px;
     background: #212121;
@@ -193,9 +200,10 @@ export const AppStyle = styled.div`
       border: 1px solid #fff;
     }
     & ul a {
-      background: transparent; 
-      color: #fff;
-      border: 1px solid transparent;
+       background: hsla(0,0%,100%,.08); 
+      color: rgb(255, 255, 255);
+      border: 1px solid hsla(0,0%,100%,.08);
+      
     }
       .rightPannel .MuiSvgIcon-fontSizeMedium{
       // color: #fff !important;
@@ -203,14 +211,16 @@ export const AppStyle = styled.div`
       ul a.active{
       
 
-       background: rgba(58,125,213,.2); 
+       background: #141414; 
       color: #fff;
-      border: 1px solid rgba(58,125,213,.2);
+      border: 1px solid #141414;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
       }
     ul a:hover {
-      background: hsla(0,0%,100%,.08); 
+      background: #141414;
       color: rgb(255, 255, 255);
-      border: 1px solid hsla(0,0%,100%,.08);
+      border: 1px solid #141414;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     }
     & button {
       background: #fff;
@@ -252,6 +262,7 @@ export const AppStyle = styled.div`
      
   }
   .rightPannel {
+
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -261,6 +272,7 @@ export const AppStyle = styled.div`
       overflow-x: auto;
       flex: 1;
       padding-right: 24px;
+      height: calc(100vh - 80px);
     }
   }
   .dark {
@@ -572,24 +584,72 @@ export const SearchStyled = styled.div`
 `;
 export const SettingStyle = styled.div`
  .flexBodyMain{
-    display: flex;
-gap: 12px;
-align-items: center;
+& .theamDiv{
+.active{
+border: 2px solid rgb(1, 79, 197);
+border-radius: 12px;
+}
+display: flex;
+    gap: 32px;
+    align-items: center;
 
+    & img{
+        width: 250px;
+    border-radius: 12px;
+    padding: 4px;
+    background: #fff;
     }
-.profileSec{
+}
+ & input{
+ height: 48px;
+ box-sizing: border-box;
+ 
+ }
+ .MuiFormControl-fullWidth{
+ width: 300px;
+ }
+ .MuiButton-colorPrimary{
+     width: fit-content;
+ }
+    display: flex;
+gap: 16px;
+& .profileNotify{
+min-width: 200px;
+background: #f8f9fb;
+padding: 16px;
+border-radius: 8px;
+}
+    }
+.flexBodyMain{
 ul{
 list-style: none;
-padding: 0;
+padding: 24px 0 0;
 margin: 0;
+display: flex;
+flex-direction: column;
+    gap: 16px;
+    cursor: pointer;
+    & li{
+     padding: 8px;
+     border-radius: 8px;
+         transition: 600ms;
+     &:hover{
+      background: #e9f2fe;
+     }
+    }
 }
+    .active{
+    background: #e9f2fe;
+    }
+.rightPannel{
+padding: 16px;
+background: rgb(248, 249, 251);
+width: 100%;
 border-radius: 8px;
-    padding: 24px;
-    border: 1px solid #e5e5e5;
-    background: #fff;
+}
 .flexBody{
 display: flex;
-gap: 12px;
+gap: 16px;
 align-items: center;
 & div:last-child {
 display: flex;
