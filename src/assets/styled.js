@@ -48,6 +48,12 @@ export const CustomHeader = styled.div`
   margin: 0 0 0 -16px;
 
   & .headerRight {
+    & .gapAlign{
+        display: flex;
+    gap: 12px;
+    align-items: center;
+    cursor: pointer;
+    }
     &div: first-child {
       display: flex;
       gap: 12px;
@@ -192,7 +198,7 @@ export const AppStyle = styled.div`
       border: 1px solid transparent;
     }
       .rightPannel .MuiSvgIcon-fontSizeMedium{
-      color: #fff !important;
+      // color: #fff !important;
       }
       ul a.active{
       
@@ -565,11 +571,39 @@ export const SearchStyled = styled.div`
 }
 `;
 export const SettingStyle = styled.div`
+ .flexBodyMain{
+    display: flex;
+gap: 12px;
+align-items: center;
+
+    }
 .profileSec{
+ul{
+list-style: none;
+padding: 0;
+margin: 0;
+}
 border-radius: 8px;
     padding: 24px;
     border: 1px solid #e5e5e5;
     background: #fff;
+.flexBody{
+display: flex;
+gap: 12px;
+align-items: center;
+& div:last-child {
+display: flex;
+gap: 16px;
+    flex-direction: column;
+    & button{    width: fit-content;}
+}
+   
+& img{
+ border-radius: 50%;
+}
+}
+
+
 }
 .
 `

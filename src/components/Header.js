@@ -15,11 +15,14 @@ import Notification from './NotificationHead';
 import NotificationHead from './NotificationHead';
 import InputAdornment from "@mui/material/InputAdornment";
 import { userContext } from '../context/ContextData';
-
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 import SearchInput from './SearchInput';
 import Dropdown from './Dropdown';
 function Header({user,handleSideBarToggle,open}) {
-  const{theam} = useContext(userContext)
+  const {theam,handleTheam,setTheam} = useContext(userContext)
+  
+  // const{theam} = useContext(userContext)
   const[showProfile,setShowProfile] = useState(false);
   console.log(user,'____Header')
 
@@ -45,7 +48,9 @@ setShowProfile((prev)=> !prev);
          
          <div className="headerRight">
           
-           <div>
+           <div className='gapAlign'>
+            {theam === "Dark Mode" ?  <DarkModeIcon onClick={handleTheam}/> :  <LightModeIcon onClick={handleTheam}/>}
+
  <IconButton aria-label="show 4 unread messages">
       <Badge badgeContent={4} color="primary">
         <MailIcon />

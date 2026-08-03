@@ -19,9 +19,9 @@ import Layout from "./layout/Layout";
 import { userContext } from "./context/ContextData";
 import Students from "./pages/Students";
 import Tasks from "./pages/Tasks";
-import Profile from "./layout/Profile";
+// import Profile from "./layout/Profile";
 import Teachers from "./pages/Teachers";
-import Settings from "./pages/Settings";
+import Profile from "./pages/Profile";
 import {AuthProvider} from "./context/ContextData"
 
 function App() {
@@ -44,9 +44,9 @@ const handleSideBarToggle = () =>{
           <Route path="/students" element={<Students />} />
            <Route path="/teachers" element={<Teachers />} />
           <Route path="/tasks" element={<Tasks />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile user={user} />} />
            <Route path="*" element={<NotFound />} />
-            <Route path="/settings" element={<Settings />} />
+            {/* <Route path="/settings" element={<Settings />} /> */}
         </Route>
 
        

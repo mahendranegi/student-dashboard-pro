@@ -7,12 +7,14 @@ import AccessibilityIcon from '@mui/icons-material/Accessibility';
 import SmsFailedIcon from '@mui/icons-material/SmsFailed';
 import NotificationHead from './NotificationHead';
 import Button from "@mui/material/Button";
-import LightModeIcon from '@mui/icons-material/LightMode';
+
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
+// import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { userContext } from '../context/ContextData';
 import { NavLink } from "react-router-dom";
+// import LightModeIcon from '@mui/icons-material/LightMode';
+
 import Switch from '@mui/material/Switch';
 const label = { slotProps: { input: { 'aria-label': 'Switch demo' } } };
 function Sidebar({open}) {
@@ -62,23 +64,9 @@ const context = useContext(userContext);
       </div>
       <div className='sideBarFooter'>
 
-        <Button
-  variant="outlined"
-  size="small"
-  onClick={handleTheam}
-  sx={{
-    bgcolor: theam === "Dark Mode" ? "#000" : "##212521",
-    color: theam === "Dark Mode" ? "#fff" : "#000",
-    borderColor: theam === "Dark Mode" ? "#fff" : "#000",
-    "&:hover": {
-      bgcolor: theam === "Dark Mode" ? "#222" : "#020751",
-    },
-  }}
->
-  {theam === "Dark Mode" ?  <Switch {...label} defaultChecked /> :  <Switch {...label} defaultChecked />}
-  {theam}
-</Button>
-        
+   
+      
+      
         {/* <NotificationHead /> */}
       </div>
       </div>

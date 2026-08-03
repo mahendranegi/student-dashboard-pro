@@ -7,7 +7,7 @@ import { TaskStyled } from "../assets/styled";
 import SearchInput from '../components/SearchInput';
 import NotFound from './NotFound';
 function Students() {
-    const [studentData] = useState(students);
+const [studentData, setStudentData] = useState(students);
     const[filterStudent,setFilterStudent] = useState(students);
     console.log(filterStudent.length, 'RRRRR')
     const [student,setStudent] = useState("zsdfsdf");
@@ -26,7 +26,8 @@ function Students() {
 const filterDataStudent = (e) =>{
   let searchStudent = e.target.value.toLowerCase();
 setStudent(searchStudent)
-  let filerStudentData = students.filter((elem,index)=>{
+ if (!searchStudent) return;
+  let filerStudentData = studentData.filter((elem,index)=>{
     return elem.name.toLowerCase().includes(searchStudent) ||
     elem.email.toLowerCase().includes(searchStudent) ||
         elem.gender.toLowerCase().includes(searchStudent) ||
@@ -36,7 +37,7 @@ setStudent(searchStudent)
   });
 
   console.log(filerStudentData,'GGGG')
-  setFilterStudent(filerStudentData);
+  setStudentData(filerStudentData);
   // console.log(searchStudent,'HHHH')
 }
 
@@ -46,7 +47,12 @@ const deleteStudentTask = (id) =>{
   });
 
   console.log(studentRow,'Deteeeeeeeeeeee')
-  setFilterStudent(studentRow)
+  setStudentData(studentRow)
+  const updatedFilter = filterStudent.filter(
+    (student) => student.id !== id
+  );
+
+  setFilterStudent(updatedFilter);
 }
   return (
      <TaskStyled>
