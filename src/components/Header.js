@@ -20,7 +20,7 @@ import SearchInput from './SearchInput';
 import Dropdown from './Dropdown';
 function Header({user,handleSideBarToggle,open}) {
   const{theam} = useContext(userContext)
-  const[showProfile,setShowProfile] = useState(true);
+  const[showProfile,setShowProfile] = useState(false);
   console.log(user,'____Header')
 
   //

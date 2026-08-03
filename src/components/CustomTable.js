@@ -23,7 +23,7 @@ import {
 import SimpleDialog from "./SimpleDialog";
 
 export default function CustomTable({ columns, data,setFilter,onDelete, }) {
- 
+ console.log(data,'Student data here')
  
   return (
     <TableContainer component={Paper} elevation={3}>

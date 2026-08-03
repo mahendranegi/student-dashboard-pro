@@ -44,8 +44,8 @@ export const GlobalStyle = styled.div`
   }
 `;
 export const CustomHeader = styled.div`
-  width: calc(100% + 24px);
-  margin: 0 0 0 -24px;
+  width: calc(100% + 16px);
+  margin: 0 0 0 -16px;
 
   & .headerRight {
     &div: first-child {
@@ -60,10 +60,10 @@ export const CustomHeader = styled.div`
   display: flex;
   justify-content: space-between;
   & header {
-    background: #fff;
+    background: rgb(246 246 246);
 
     color: #212121;
-    margin: 0 0 24px;
+    margin: 0 0 16px;
     box-shadow: none;
     & .MuiToolbar-regular {
       padding: 0 16px;
@@ -138,22 +138,48 @@ export const AppStyle = styled.div`
     display: flex;
   }
   .scrollContent {
-    padding-right: 24px;
+        padding: 16px;
+    background: #fff;
+    border-radius: 8px;
   }
   .darkBg {
+  .scrollContent{
+      padding: 16px;
+    background: #212121;
+    border-radius: 8px;
+    color: #fff;
+  }
     &
       .scrollContent
       .css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline {
-      border: 1px solid #000;
+      border: 1px solid #fff;
     }
+      & .css-1xwxv7r-MuiTable-root{
+      backgound: #141414;
+      }
+      & .css-b93qut-MuiTableRow-root{
+      background: #141414;
+      }
+      & .css-1dc80h3-MuiTableCell-root{
+      color: #ccc;
+      background: #212121;
+      }
+      & .css-1orzuox-MuiTableCell-root{
+      color: #fff;
+      }
+
+      & .css-1xwxv7r-MuiTable-root{
+          border: 1px solid #f6f6f636;
+      }
     & .scrollContent input:: placeholder {
-      color: #000;
+      color: #fff;
     }
     & input::placeholder {
       color: #fff;
     }
     & .TableUi {
-      background: #fff;
+      background: #212121;
+      border: 1px solid 1px solid rgba(246, 246, 246, 0.26);
     }
     & .flexAlign button {
       background: #fff;
@@ -161,13 +187,24 @@ export const AppStyle = styled.div`
       border: 1px solid #fff;
     }
     & ul a {
-      background: #fff;
-      border: 1px solid #fff;
+      background: transparent; 
+      color: #fff;
+      border: 1px solid transparent;
     }
-    ul a.active,
+      .rightPannel .MuiSvgIcon-fontSizeMedium{
+      color: #fff !important;
+      }
+      ul a.active{
+      
+
+       background: rgba(58,125,213,.2); 
+      color: #fff;
+      border: 1px solid rgba(58,125,213,.2);
+      }
     ul a:hover {
-      background: rgb(15, 23, 42);
+      background: hsla(0,0%,100%,.08); 
       color: rgb(255, 255, 255);
+      border: 1px solid hsla(0,0%,100%,.08);
     }
     & button {
       background: #fff;
@@ -180,30 +217,39 @@ export const AppStyle = styled.div`
       border: 1px solid #fff;
     }
     & .sideBarbg {
-      // background: #111827;
-      background-image:
-        url(${boxBgBlue}),
-        linear-gradient(
-          305.67deg,
-          rgba(52, 139, 242, 1) 0%,
-          rgba(33, 104, 219, 1) 100%
-        );
+      background: #212121;
+      
 
       color: #fff;
     }
 
-    background: #0f172a;
-    color: #f8fafc;
+    background: #141414;
+    color: #fff;
     & header {
-      background: #1e3a8a;
+      background: #212121;
       color: #fff;
     }
+    .profileSec{
+     background: #212121;
+     border: 1px solid rgb(246 246 246 / 26%);
+     color: #fff;
+     
+     
+    }
+    .cardSec{
+      background: #141414;
+      border: 1px solid rgb(246 246 246 / 26%);
+       ul li{
+    background: #212121;
+     }
+     }
+     
   }
   .rightPannel {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    padding: 0 0 0 24px;
+    padding: 0 0 0 16px;
 
     & .scrollContent {
       overflow-x: auto;
@@ -293,7 +339,7 @@ export const SidebarStyle = styled.div`
     // background: rgb(255, 255, 255);
     padding: 24px;
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
-    padding: 20px 16px;
+    padding: 5px 16px 20px;
     background-repeat: no-repeat;
     background-position: left top;
   }
@@ -316,7 +362,7 @@ export const SidebarStyle = styled.div`
 
   & ul {
     list-style: none;
-    border-top: 2px solid #ccc;
+    border-top: 1px solid rgb(204 204 204 / 27%);
     padding: 24px 0 0;
     display: flex;
     flex-direction: column;
@@ -514,8 +560,16 @@ export const SearchStyled = styled.div`
     color: rgb(117, 117, 117);
 }
     input {
-    width: 200px;
     margin-left: 16px;
 }
 }
 `;
+export const SettingStyle = styled.div`
+.profileSec{
+border-radius: 8px;
+    padding: 24px;
+    border: 1px solid #e5e5e5;
+    background: #fff;
+}
+.
+`
