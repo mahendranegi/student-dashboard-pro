@@ -22,7 +22,7 @@ import {
 } from "@mui/material";
 import SimpleDialog from "./SimpleDialog";
 
-export default function CustomTable({ columns, data,setFilter,onDelete, }) {
+export default function CustomTable({ columns, data,setFilter,onDelete,onEdit }) {
  console.log(data,'Student data here')
  
   return (
@@ -52,7 +52,7 @@ export default function CustomTable({ columns, data,setFilter,onDelete, }) {
               ))}
               <TableCell>
                 <div style={{display: 'flex',gap: '12px',cursor: 'pointer'}}>
-                  <EditIcon sx={{ color: "#0288d1", cursor: "pointer" }}/>
+                  <EditIcon onClick={()=>onEdit(row.id)} sx={{ color: "#0288d1", cursor: "pointer" }}/>
                 <DeleteIcon onClick={()=>onDelete(row.id)} sx={{ color: "#d32f2f", cursor: "pointer" }}/>
                 </div>
                 

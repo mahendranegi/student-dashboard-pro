@@ -17,7 +17,7 @@ import { NavLink } from "react-router-dom";
 
 import Switch from '@mui/material/Switch';
 const label = { slotProps: { input: { 'aria-label': 'Switch demo' } } };
-function Sidebar({open}) {
+function Sidebar({open,handleNotify,showProfile,setShowProfile}) {
 const {theam,handleTheam,setTheam} = useContext(userContext)
 const context = useContext(userContext);
   return (
@@ -63,11 +63,7 @@ const context = useContext(userContext);
        </ul>
       </div>
       <div className='sideBarFooter'>
-
-   
-      
-      
-        {/* <NotificationHead /> */}
+        {/* <NotificationHead onClick={handleNotify} showProfile={showProfile} /> */}
       </div>
       </div>
     </SidebarStyle>

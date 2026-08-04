@@ -1,24 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import { NotificationStyle } from "../assets/styled";
 import Person3Icon from '@mui/icons-material/Person3';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import { deepOrange } from '@mui/material/colors';
-function NotificationHead({user,showProfile,onClick}) {
+import { userContext } from "../context/ContextData";
+// import { useContext } from 'react';
+import { NavLink } from "react-router-dom";
+
+
+function NotificationHead({showProfile,onClick}) {
+    const { user } = useContext(userContext); 
   
-  // console.log(user,'++++++++++')
+  
   return (
     <NotificationStyle onClick={onClick}>
-      <div className='user'>
+      {/* <div className='user'>
          <Person3Icon />
-      </div>
-      {/* <Avatar
-        sx={{ bgcolor: deepOrange[500] }}
-        alt="Remy Sharp"
-        src="/broken-image.jpg"
-      >
-        M
-      </Avatar> */}
+      </div> */}
+      <img src={user?.image} alt={user?.image}/>
     
     <div>
       <h4>{user?.name}</h4>
@@ -27,15 +27,15 @@ function NotificationHead({user,showProfile,onClick}) {
 
     {showProfile && <div className='cardSec'>
       <div className='info'>
-        <h1>h</h1>
+        <img src={user?.image} alt={user?.image} />
         <div>
-          <h6>Mahendra</h6>
-          <span>zhsdfhsdjkhf</span>
+          <h6>{user?.name}</h6>
+          <span>{user?.email}</span>
         </div>
       </div>
       <ul>
-        <li>Settings</li>
-         <li>Logout</li>
+        <li><NavLink to="/profile">Settings</NavLink></li>
+         <li><NavLink to="/">Logout</NavLink></li>
       </ul>
     </div>}
     </NotificationStyle>

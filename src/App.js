@@ -27,19 +27,25 @@ import {AuthProvider} from "./context/ContextData"
 function App() {
 const storedUser = localStorage.getItem("user");
 const user = storedUser ? JSON.parse(storedUser) : null;
+  const[showProfile,setShowProfile] = useState(false);
 
 const[open,setOpen] = useState(true);
 
 const handleSideBarToggle = () =>{
   setOpen((prev)=> !prev)
 }
+
+
+  const handleNotify = () =>{
+setShowProfile((prev)=> !prev);
+  }
   return (
     <AuthProvider>
     <BrowserRouter>
     <AppStyle>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route element={user  ? <Layout setOpen={setOpen} handleSideBarToggle={handleSideBarToggle} open= {open}  user={user}/> : <Navigate to="/" replace />}>
+        <Route element={user  ? <Layout handleNotify={handleNotify} showProfile={showProfile} setShowProfile={setShowProfile} setOpen={setOpen} handleSideBarToggle={handleSideBarToggle} open= {open}  user={user} /> : <Navigate to="/" replace />}>
           <Route path="/dashboard" element={<Dashboard  user={user}/>} />
           <Route path="/students" element={<Students />} />
            <Route path="/teachers" element={<Teachers />} />

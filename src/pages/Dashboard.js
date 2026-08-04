@@ -45,11 +45,9 @@ function Dashboard({user}) {
       height={300}
     />
 
-    <div>
+    <div style={{padding: '0 0 32px'}}>
 
-  <h6>
-    Student Attendance
-  </h6>
+  
 
   <Charts />
 

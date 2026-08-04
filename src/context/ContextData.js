@@ -48,6 +48,7 @@ export const AuthProvider = ({ children }) => {
         theam,
         handleTheam,
         user,
+        setUser,
         login,
         logout,
       }}

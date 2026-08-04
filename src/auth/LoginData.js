@@ -7,6 +7,8 @@ export const loginData = [
         email : 'demo@gmail.com',
         password : 123456,
         work: 'UI Developer',
+            image: "https://i.pravatar.cc/150?img=1",
+
     },
     {
         id: 2,
@@ -14,6 +16,7 @@ export const loginData = [
         email : 'test@gmail.com',
         password : 12345,
         work: 'UI Developer',
+        image: "https://i.pravatar.cc/150?img=2",
     },
 
 ]

@@ -44,6 +44,7 @@ export const GlobalStyle = styled.div`
   }
 `;
 export const CustomHeader = styled.div`
+
   width: calc(100% + 16px);
   margin: 0 0 0 -16px;
 
@@ -150,6 +151,9 @@ export const AppStyle = styled.div`
 
   }
   .darkBg {
+  .whiteIcon{
+  color: #fff !important;
+  }
   .profileNotify,.rightPannel{
   background: rgb(50 50 50) !important;
   }
@@ -188,8 +192,12 @@ background: rgba(58,125,213,.2);
       color: #fff;
     }
     & input::placeholder {
-      color: #fff;
+      color: #fff !important;
+      
     }
+      & input{
+      color: #fff !important;
+      }
     & .TableUi {
       background: #212121;
       border: 1px solid 1px solid rgba(246, 246, 246, 0.26);
@@ -411,6 +419,27 @@ export const SidebarStyle = styled.div`
   }
 `;
 export const NotificationStyle = styled.div`
+ul li a{
+    text-decoration : none;
+    padding: 10px;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: 400ms;
+        display: block;
+    &.active{
+    background: #f6f6f6;
+    color: #000;
+    }
+ 
+}
+     ul li a:hover{
+background: #f6f6f6;
+}
+img{
+    width: 40px;
+    border-radius: 50%;
+    height: 40px;
+}
   position: relative;
   .cardSec {
     background-clip: padding-box;
@@ -439,12 +468,7 @@ export const NotificationStyle = styled.div`
       flex-direction: column;
       gap: 8px;
       border-top: 2px solid rgb(246, 246, 246);
-      & li {
-        padding: 10px;
-        background: #f6f6f6;
-        cursor: pointer;
-        border-radius: 8px;
-      }
+     
     }
   }
   .info {
@@ -453,11 +477,11 @@ export const NotificationStyle = styled.div`
     align-items: center;
   }
   display: flex;
-  gap: 4px;
+  gap: 12px;
+  align-items: center;
   & .user {
     width: 46px;
     height: 46px;
-    border-radius: 50%;
     display: flex;
     background: rgb(182, 182, 182);
     border-radius: 50%;
@@ -583,6 +607,27 @@ export const SearchStyled = styled.div`
 }
 `;
 export const SettingStyle = styled.div`
+
+.errorMsg{
+    color: red;
+    display: inline-block;
+    background: #ff000030;
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin: 0px 0 0 0;
+    position: relative;
+    top: 16px;
+    width: 420px;
+    box-sizing: border-box;
+    border: 1px solid red;
+}
+position: relative;
+.MuiAlert-colorSuccess{
+    position: fixed;
+    top: 124px;
+    z-index: 999;
+    right: 24px;
+}
  .flexBodyMain{
 & .theamDiv{
 .active{
@@ -606,7 +651,7 @@ display: flex;
  
  }
  .MuiFormControl-fullWidth{
- width: 300px;
+ width: 420px;
  }
  .MuiButton-colorPrimary{
      width: fit-content;
@@ -659,7 +704,8 @@ gap: 16px;
 }
    
 & img{
- border-radius: 50%;
+ border-radius: 8px;
+     width: 78px;
 }
 }
 

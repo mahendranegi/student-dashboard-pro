@@ -19,19 +19,10 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import SearchInput from './SearchInput';
 import Dropdown from './Dropdown';
-function Header({user,handleSideBarToggle,open}) {
+function Header({user,handleSideBarToggle,open,handleNotify,showProfile,setShowProfile}) {
   const {theam,handleTheam,setTheam} = useContext(userContext)
   
-  // const{theam} = useContext(userContext)
-  const[showProfile,setShowProfile] = useState(false);
-  console.log(user,'____Header')
-
-  //
-
-  const handleNotify = () =>{
-    console.log('jjjj')
-setShowProfile((prev)=> !prev);
-  }
+ 
   return (
     <CustomHeader>
        <Box sx={{ flexGrow: 1 }}>
@@ -41,7 +32,7 @@ setShowProfile((prev)=> !prev);
           
           
 
-{open === true ? <MenuIcon onClick={handleSideBarToggle} style={{cursor: 'pointer',color: '#000',fontWeight: 'bold',fontSize: '36px'}}/> : <CloseIcon onClick={handleSideBarToggle} style={{cursor: 'pointer',color: '#000',fontWeight: 'bold',fontSize: '36px'}}/>}
+{open === true ? <MenuIcon className='whiteIcon' onClick={handleSideBarToggle} style={{cursor: 'pointer',color: '#000',fontWeight: 'bold',fontSize: '36px'}}/> : <CloseIcon className='whiteIcon' onClick={handleSideBarToggle} style={{cursor: 'pointer',color: '#000',fontWeight: 'bold',fontSize: '36px'}}/>}
 
           <SearchInput placeholder="Enter project name.."/>
           </div>
@@ -63,7 +54,7 @@ setShowProfile((prev)=> !prev);
       </Badge>
     </IconButton>
    </div>
-<NotificationHead user={user} onClick={handleNotify} showProfile={showProfile}/>
+<NotificationHead onClick={handleNotify} showProfile={showProfile}/>
 </div>
 {/* <Dropdown /> */}
         </Toolbar>

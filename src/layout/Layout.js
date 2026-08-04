@@ -4,15 +4,15 @@ import Sidebar from '../components/Sidebar'
 import { Outlet } from "react-router-dom";
 import { userContext } from '../context/ContextData';
 
-function Layout({user,setOpen, open,handleSideBarToggle}) {
+function Layout({user, setUser,setOpen, open,handleSideBarToggle,handleNotify,showProfile,setShowProfile}) {
 const {theam} = useContext(userContext);
   console.log('user________',user)
   return (
     <div  className={theam === "Dark Mode" ? 'commonLayoutSec' : 'commonLayoutSec darkBg'}>
-      {open && <Sidebar open= {open}/>}
+      {open && <Sidebar  setUser={setUser} handleNotify={handleNotify} showProfile={showProfile} setShowProfile={setShowProfile} open= {open}/>}
 
       <div className='rightPannel' style={{width: '100%',}}>
-        <Header handleSideBarToggle={handleSideBarToggle} setOpen={setOpen} open= {open} user={user} />
+        <Header handleNotify={handleNotify} showProfile={showProfile} setShowProfile={setShowProfile} handleSideBarToggle={handleSideBarToggle} setOpen={setOpen} open= {open} user={user} />
 
         <div className="scrollContent">
           <Outlet />

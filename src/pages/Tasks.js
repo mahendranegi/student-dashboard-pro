@@ -78,8 +78,6 @@ const handleCreateTask = () =>{
     alert('Please fill the all field');
   }
   else{
-    console.log(task,category);
-    
   const newTask = {
     id: Date.now(),
     title: task,
@@ -94,19 +92,18 @@ const handleCreateTask = () =>{
 
   setUpdatetask(updatedTasks);
   setFilter(updatedTasks);
-    setTask('');
-    setCategory('');
-    setAssigned('');
-    setDate('');
-    setPriority('');
-    setStatus('');
-    setDes('')
-setOpenTaskDrawer(false)
-
-setNotify(true);
-setTimeout(() => {
-  setNotify(false);
-}, 2000);
+  setTask('');
+  setCategory('');
+  setAssigned('');
+  setDate('');
+  setPriority('');
+  setStatus('');
+  setDes('')
+  setOpenTaskDrawer(false)
+  setNotify(true);
+  setTimeout(() => {
+    setNotify(false);
+  }, 2000);
   }
 }
   return (
